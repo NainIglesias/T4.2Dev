@@ -1,5 +1,6 @@
 const promise = document.getElementById('promise');
 const async = document.getElementById('async');
+let text = document.getElementById('texto');
 let image = document.getElementById('image');
 const url = 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/';
 const options = {
@@ -25,10 +26,12 @@ function fetchPromise(){
         })
         .then(responseData =>{
             //text.innerText = 'respuesta promise';
-            //console.log(responseData)
+            //19j//console.log(responseData)
                 responseData.forEach(element => {
                     if(element.hasOwnProperty('img')){
                         image.setAttribute('src', element.img);
+                        console.log(element.flavor);
+                        text.innerText = element.flavor;
                      }
              });
             // image.setAttribute('src',responseData[1].imgGold);
@@ -43,13 +46,14 @@ async function asyncAwait(){
     const responseData = await reponse.json();
     // console.log(reponse);
     //console.log('data',data)
-    //console.log(responseData.length);
+    //ggconsole.log(responseData.length);
     if(responseData.length>=0){
 
 
         responseData.forEach(element => {
             if(element.hasOwnProperty('img')){
                 image.setAttribute('src', element.img);
+                text.innerText = element.faction;
                 //validarImagen(element);
                 // break;
             }
