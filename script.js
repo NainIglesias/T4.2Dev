@@ -25,9 +25,14 @@ function fetchPromise(){
         })
         .then(responseData =>{
             //text.innerText = 'respuesta promise';
-            //console.log(responseData);
-            text.innerText = responseData[0].faction;
-            image.setAttribute('src',responseData[0].imgGold);
+            //console.log(responseData)
+            responseData.forEach(element => {
+                if(element.hasOwnProperty('imgGold')){
+                    image.setAttribute('src', element.imgGold);
+                    text.innerText = element.faction;
+                }
+            });
+            // image.setAttribute('src',responseData[1].imgGold);
 
         })
 }
@@ -39,8 +44,12 @@ async function asyncAwait(){
     // console.log(reponse);
     //console.log('data',data);
 
-    text.innerText = responseData[0].faction;
-    image.setAttribute('src',responseData[0].imgGold);
+    responseData.forEach(element => {
+        if(element.hasOwnProperty('imgGold')){
+            image.setAttribute('src', element.imgGold);
+            text.innerText = element.faction;
+        }
+    });
 }
 
 
