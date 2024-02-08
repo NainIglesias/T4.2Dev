@@ -1,0 +1,38 @@
+#container{
+    color: white;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    margin-top: 3%;
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+button{
+    margin-top: 10px;
+    width: 100%;
+    border:1px solid black;
+}
+input{
+    width: 39.7%;
+}
+#buttons_container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+h3{
+text-align: center;
+}
+body{
+    background-image: url(https://www.mundodeportivo.com/alfabeta/hero/2022/03/T4X89H9B4IW01540616432827.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#image{
+    width: 375px;
+    height: 518px;
+    border-radius: 7%;
+}
