@@ -27,7 +27,7 @@ const monsterName = document.getElementById('searched').value;
         alert('carta no encontrada');
     }
 ``````
-Otra parte impoortante es que para poder utilizar esta API, he tenido que pedir un tokken de acceso, que se pasa como parámentro en los headers de la petición, para poder acceder a la infromación. La página me dió dichos tokkens al logearme en ella.
+Otra parte impoortante es que para poder utilizar esta API, he tenido que pedir un tokken de acceso, que se pasa como parámentro en los headers de la petición, para poder acceder a la infromación. La página me dió dichos tokkens al registrarme en ella.
 ``````
 const options = {
     method: 'GET',
