@@ -27,13 +27,13 @@ function fetchPromise(){
         .then(responseData =>{
             //text.innerText = 'respuesta promise';
             //19j//console.log(responseData)
-                responseData.forEach(element => {
-                    if(element.hasOwnProperty('img')){
-                        image.setAttribute('src', element.img);
-                        console.log(element.flavor);
-                        text.innerText = element.flavor;
-                     }
-             });
+            responseData.forEach(element => {
+                if(element.hasOwnProperty('img')){
+                    image.setAttribute('src', element.img);
+                    console.log(element.flavor);
+                    text.innerText = element.flavor;
+                }
+            });
             // image.setAttribute('src',responseData[1].imgGold);
 
         })
@@ -42,14 +42,14 @@ function fetchPromise(){
 async function asyncAwait(){
 
     const monsterName = document.getElementById('searched').value;
-    const reponse = await fetch(url+monsterName,options);
-    const responseData = await reponse.json();
-    // console.log(reponse);
-    //console.log('data',data)
-    //ggconsole.log(responseData.length);
-    if(responseData.length>=0){
 
+    try {
+        const reponse = await fetch(url+monsterName,options).catch(error);
+        const responseData = await reponse.json();
 
+        // console.log(reponse);
+        //console.log('data',data)
+         //console.log(responseData.length);
         responseData.forEach(element => {
             if(element.hasOwnProperty('img')){
                 image.setAttribute('src', element.img);
@@ -58,10 +58,9 @@ async function asyncAwait(){
                 // break;
             }
         });
-    }else{
-            alert('carta no encontrada');
-    }
-}
+    }catch(error){
+        alert('Carta no encontrada');
+    }}
 
 
 promise.addEventListener('click',()=>{
