@@ -60,7 +60,8 @@ async function asyncAwait(){
         });
     }catch(error){
         alert('Carta no encontrada');
-    }}
+    }
+}
 
 
 promise.addEventListener('click',()=>{
