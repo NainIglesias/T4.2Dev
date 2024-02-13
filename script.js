@@ -5,10 +5,10 @@ let image = document.getElementById('image');
 const url = 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/';
 const options = {
     method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '137265fd30mshce5b2112f9ef1c9p1faffejsnc2350ba2913d',
-        'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
-    }
+	headers: {
+		'X-RapidAPI-Key': '137265fd30mshce5b2112f9ef1c9p1faffejsnc2350ba2913d',
+		'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+	}
 };
 
 
