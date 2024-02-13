@@ -52,7 +52,7 @@ async function asyncAwait(){
         responseData.forEach(element => {
             if (element.hasOwnProperty('img')) {
                 image.setAttribute('src', element.img);
-                text.innerText = element.faction;
+                text.innerText = element.flavor;
                 //validarImagen(element);
                 // break;
             }
