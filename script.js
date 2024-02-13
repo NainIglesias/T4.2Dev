@@ -44,22 +44,19 @@ async function asyncAwait(){
     const monsterName = document.getElementById('searched').value;
 
     try {
-        const reponse = await fetch(url+monsterName,options).catch(error);
-        const responseData = await reponse.json();
-
-        // console.log(reponse);
-        //console.log('data',data)
-         //console.log(responseData.length);
+        const response = await fetch(url + monsterName, options);
+        const responseData = await response.json();
+    
         responseData.forEach(element => {
-            if(element.hasOwnProperty('img')){
+            if (element.hasOwnProperty('img')) {
                 image.setAttribute('src', element.img);
                 text.innerText = element.faction;
                 //validarImagen(element);
                 // break;
             }
         });
-    }catch(error){
-        alert('Carta no encontrada');
+    } catch (error) {
+        alert(error);
     }
 }
 
