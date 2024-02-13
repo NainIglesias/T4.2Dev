@@ -42,9 +42,11 @@ function fetchPromise(){
 async function asyncAwait(){
 
     const monsterName = document.getElementById('searched').value;
-
     try {
         const response = await fetch(url + monsterName, options);
+        if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.statusText);
+        }
         const responseData = await response.json();
     
         responseData.forEach(element => {
@@ -56,7 +58,7 @@ async function asyncAwait(){
             }
         });
     } catch (error) {
-        alert(error);
+        alert('Error al obtener los datos del monstruo: ' + error.message);
     }
 }
 
