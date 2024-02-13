@@ -20,24 +20,22 @@ const monsterName = document.getElementById('searched').value;
 ``````
 - En el segundo caso, la carta no se encuentra y se ha pulsado el botón de búsqueda por async, el programa recogera el error 404 y mostrará una alerta diciendo que la carta no se encuentra.
 ``````
-  const monsterName = document.getElementById('searched').value;
-    try {
-        const reponse = await fetch(url+monsterName,options).catch(error);
-        const responseData = await reponse.json();
+    const monsterName = document.getElementById('searched').value;
 
-        // console.log(reponse);
-        //console.log('data',data)
-         //console.log(responseData.length);
+    try {
+        const response = await fetch(url + monsterName, options);
+        const responseData = await response.json();
+    
         responseData.forEach(element => {
-            if(element.hasOwnProperty('img')){
+            if (element.hasOwnProperty('img')) {
                 image.setAttribute('src', element.img);
                 text.innerText = element.faction;
                 //validarImagen(element);
                 // break;
             }
         });
-    }catch(error){
-        alert('Carta no encontrada');
+    } catch (error) {
+        alert(error);
     }
 ``````
 Otra parte impoortante es que para poder utilizar esta API, he tenido que pedir un tokken de acceso, que se pasa como parámentro en los headers de la petición, para poder acceder a la infromación. La página me dió dichos tokkens al registrarme en ella.

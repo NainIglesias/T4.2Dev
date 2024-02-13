@@ -30,7 +30,7 @@ function fetchPromise(){
             responseData.forEach(element => {
                 if(element.hasOwnProperty('img')){
                     image.setAttribute('src', element.img);
-                    console.log(element.flavor);
+                    //console.log(element.flavor);
                     text.innerText = element.flavor;
                 }
             });
