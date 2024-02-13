@@ -58,7 +58,7 @@ async function asyncAwait(){
             }
         });
     } catch (error) {
-        alert('Error al obtener los datos del monstruo: ' + error.message);
+        alert('Carta no encontrada');
     }
 }
 
