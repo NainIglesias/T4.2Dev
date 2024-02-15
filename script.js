@@ -5,10 +5,10 @@ let image = document.getElementById('image');
 const url = 'https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/';
 const options = {
     method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '137265fd30mshce5b2112f9ef1c9p1faffejsnc2350ba2913d',
-        'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
-    }
+	headers: {
+		'X-RapidAPI-Key': '137265fd30mshce5b2112f9ef1c9p1faffejsnc2350ba2913d',
+		'X-RapidAPI-Host': 'omgvamp-hearthstone-v1.p.rapidapi.com'
+	}
 };
 
 
@@ -30,7 +30,7 @@ function fetchPromise(){
             responseData.forEach(element => {
                 if(element.hasOwnProperty('img')){
                     image.setAttribute('src', element.img);
-                    console.log(element.flavor);
+                    //console.log(element.flavor);
                     text.innerText = element.flavor;
                 }
             });
@@ -42,23 +42,22 @@ function fetchPromise(){
 async function asyncAwait(){
 
     const monsterName = document.getElementById('searched').value;
-
     try {
-        const reponse = await fetch(url+monsterName,options).catch(error);
-        const responseData = await reponse.json();
-
-        // console.log(reponse);
-        //console.log('data',data)
-         //console.log(responseData.length);
+        const response = await fetch(url + monsterName, options);
+        if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.statusText);
+        }
+        const responseData = await response.json();
+    
         responseData.forEach(element => {
-            if(element.hasOwnProperty('img')){
+            if (element.hasOwnProperty('img')) {
                 image.setAttribute('src', element.img);
-                text.innerText = element.faction;
+                text.innerText = element.flavor;
                 //validarImagen(element);
                 // break;
             }
         });
-    }catch(error){
+    } catch (error) {
         alert('Carta no encontrada');
     }
 }
