@@ -1,13 +1,13 @@
 # Promesas Async/Await
 Pequeña página web humilde en el que se testean los conceptos básicos sobre promesas y async/await. La página representaría una partida de Hearthstone, en la que puedes buscar cualquier carta que se encuentre actualemente dentro del juego mientras suena la música de combate de fondo.
-Para este trabajo he utilizado la [API de Hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) a la cual hago peticiones por fetch de distintas maneras.
+Para este trabajo he utilizado la [API de Hearthstone](https://hearthstone.blizzard.com/en-us/cards?set=standard&sort=manaCost%3Aasc%2Cname%3Aasc%2Cclasses%3Aasc%2CgroupByClass%3Aasc%2CgroupByClass%3Aasc)a la cual hago peticiones por fetch de distintas maneras.
 El funcionamiento de la pàgina es  el siguiente: El usuario ingresa en el campo de búsqueda la carta a buscar y , si la encuentra, muestra la carta y la descripción de la misma en pantalla.
 Para testear el funcionamiento de la web usé la base de datos donde se ecncuentran todas las [cartas actuales](https://hearthstone.blizzard.com/es-es/cards/).
 <p style="background-color:red; margin:5%; padding: 10px; width: fit-content;">¡¡¡ OJO, LAS PETICIONES A LA API SON KEY SENSITIVE !!!</p>
  Si no la encuentra puede saltar una de las 2 excepciones:
 
 - La primera es cuando no encuentra la carta y se ha pulsado el botón de búsqueda por pormesa, el programa recogera el error de que la petición a la api ha fallado y se mostrará por consola un error personalizado.
-  
+
 ``````
 const monsterName = document.getElementById('searched').value;
     fetch(url+monsterName, options)
